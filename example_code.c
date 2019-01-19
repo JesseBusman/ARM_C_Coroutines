@@ -1,7 +1,7 @@
 #include "coroutines.h"
 
 // This coroutine will return 1, 2, 3, then stop itself.
-Coroutine* OneTwoThree(uint32_t runValue, Coroutine* co)
+Coroutine* OneTwoThree(uint32_t, Coroutine* co)
 {
 	CoYield(1, co);
 	CoYield(2, co);
@@ -14,7 +14,7 @@ Coroutine* OneTwoThree(uint32_t runValue, Coroutine* co)
 Coroutine* CounterCoroutine(uint32_t runValue, Coroutine* co)
 {
 	uint32_t runningCount;
-	runningCount = value;
+	runningCount = runValue;
 	while (1)
 	{
 		runningCount += CoYield(runningCount, co);
@@ -23,7 +23,7 @@ Coroutine* CounterCoroutine(uint32_t runValue, Coroutine* co)
 
 // FibonacciCoroutine does not consume any value.
 // It will yield the next fibonacci number on every run.
-Coroutine* FibonacciCoroutine(uint32_t runValue, Coroutine* co)
+Coroutine* FibonacciCoroutine(uint32_t, Coroutine* co)
 {
 	uint32_t a, b, temp;
 	a = 1;
