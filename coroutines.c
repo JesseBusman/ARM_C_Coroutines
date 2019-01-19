@@ -7,14 +7,14 @@ void CoKill(Coroutine* coroutine)
 	free(coroutine);
 }
 
-uint32_t CoHasFinished(Coroutine* coroutine)
+uint32_t CoHasReturned(Coroutine* coroutine)
 {
 	return coroutine->coroutineSP == 0;
 }
 
 void CoEnd(Coroutine* coroutine)
 {
-	if (!CoHasFinished(coroutine)) *(int*)NULL = 1; // Fault: Coroutine must be finished to CoEnd it.
+	if (!CoHasReturned(coroutine)) *(int*)NULL = 1; // Fault: Coroutine must be finished to CoEnd it.
 	free(coroutine);
 	return;
 }
