@@ -10,6 +10,6 @@ Coroutine* CoInit(Coroutine* (*coroutineFunction)(uint32_t runValue, Coroutine* 
 uint32_t CoRun(uint32_t runValue, Coroutine* coroutine);
 uint32_t CoYield(uint32_t yieldValue, Coroutine* coroutine);
 void CoReturn(Coroutine* coroutine);
-uint32_t CoHasFinished(Coroutine* coroutine);
+uint32_t CoHasReturned(Coroutine* coroutine);
 void CoEnd(Coroutine* coroutine);
-uint32_t CoKill(Coroutine* coroutine);
+void CoKill(Coroutine* coroutine);
