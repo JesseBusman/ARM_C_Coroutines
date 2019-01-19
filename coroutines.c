@@ -14,7 +14,7 @@ uint32_t CoHasReturned(Coroutine* coroutine)
 
 void CoEnd(Coroutine* coroutine)
 {
-	if (!CoHasReturned(coroutine)) *(int*)NULL = 1; // Fault: Coroutine must be finished to CoEnd it.
+	if (!CoHasReturned(coroutine)) *(int*)NULL = 1; // Fault: Coroutine must have returned to CoEnd it.
 	free(coroutine);
 	return;
 }
